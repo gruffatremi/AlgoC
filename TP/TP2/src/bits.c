@@ -11,7 +11,7 @@ int tableau[31];
   for (c = 31; c >= 0; c--)
   {
     k = n >> c;
-
+//printf("%d\n",k);
     if (k & 1) {
       printf("1");
       tableau[c]=1;
