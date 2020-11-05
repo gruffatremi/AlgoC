@@ -1,13 +1,15 @@
 # Bibliothèques
-* 
-*
+* stdio.h
+* stdlib.h
+* <string.h>
 
 # Références
-*https://forums.commentcamarche.net/forum/affich-25599-elevation-a-la-puissance-en-langage-c
+* https://forums.commentcamarche.net/forum/affich-25599-elevation-a-la-puissance-en-langage-c
 * https://openclassrooms.com/forum/sujet/initialisation-aleatoire-d-un-tableau
+* https://stackoverflow.com/questions/13542055/how-to-do-scanf-for-single-char-in-c
 
 # Difficulté
-*
+* Difficile***
 
 # Commentaires
 * 
