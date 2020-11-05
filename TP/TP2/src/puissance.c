@@ -15,19 +15,21 @@ exp = exp * a;
 }
 
 return exp;
-
-
 }
-
 
 
 int main() {
 
-int a = 2; 
-int b = 3;
+int a ; 
+int b ;
+
+printf("entez la valeur de a : "); 
+scanf("%d",&a);
+
+printf("entez la valeur de b : ");
+scanf("%d",&b);
+
 int exponentiel = puissance(a,b);
 printf("%d\n", exponentiel);
-
-
 return 0;
 }

@@ -15,10 +15,6 @@ str2[i]='\0';
 
 printf("la chaine de base : %s\n",str1);
 printf("la chaine copiée : %s\n" ,str2);
-
-
-
-
-
 return 0;
+
 }
