@@ -1,21 +1,38 @@
-#include <stdio.h> // en-têtes(headers)
-#include <sys/types.h>
-#include <sys/stat.h>
-#include <fcntl.h>
-#include <unistd.h>
+#include <stdio.h>
 #include "fichier.h"
-int main() {
 
-char message[100];
-
-lire_fichier("message.txt");
-
-printf("\n entre le message que tu veux\n");
-
-scanf("%s",message);
-
-ecrire_dans_fichier("message.txt",message);
-
-return 0;
-
+void lire_fichier(char *nom_de_fichier)
+{
+    FILE *mon_fichier = NULL;
+    int c;
+    mon_fichier = fopen(nom_de_fichier,"r");
+    if(mon_fichier)
+    {
+        while((c = fgetc(mon_fichier)) != EOF)
+        {
+            printf("%c",c);
+        }
+        fclose(mon_fichier);
+    }
+    else
+    {
+        printf("Erreur, le fichier ne peut pas être ouvert !\n");
+    }
 }
+
+
+void ecrire_dans_fichier(char*nom_de_fichier, char *message)
+{
+    FILE *mon_fichier = NULL;
+    mon_fichier = fopen(nom_de_fichier,"a");
+    if(mon_fichier)
+    {
+        fputs(message,mon_fichier);
+        fclose(mon_fichier);
+    }
+    else
+    {
+        printf("Erreur, le fichier ne peut pas être ouvert !\n");
+    }
+}
+
