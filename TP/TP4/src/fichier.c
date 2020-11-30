@@ -16,7 +16,6 @@ scanf("%s",message);
 
 ecrire_dans_fichier("message.txt",message);
 
-
 return 0;
 
 }

@@ -51,7 +51,7 @@ lafond.Prog_C = 5;
 lafond.System_exploitation = 9;
 
 
-
+printf(" %s \n ", lafond.prenom);
 
 
 return 0;
