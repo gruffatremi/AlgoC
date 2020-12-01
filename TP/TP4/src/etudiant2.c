@@ -1,10 +1,10 @@
-
 #include <stdio.h> // en-têtes(headers)
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <fcntl.h>
 #include <unistd.h>
 #include "fichier.h"
+#include <string.h>
 int main() {
 //definition d'une structure étudiant
 /*
@@ -14,13 +14,12 @@ char nom[30];
 char addresse[30];;
 char prog_c[5];
 char System_exploitation[5];
-
 };
 */
 char tmp[10];
 int nbr,i;
-char nom[10];
-char prenom[10];
+char nom[30];
+char prenom[30];
 char address[50];
 char prog_c[5];
 char sys[5];
@@ -63,22 +62,26 @@ ecrire_dans_fichier("etudiant.txt",address);
 ecrire_dans_fichier("etudiant.txt",", ");
 
 
-ecrire_dans_fichier("etudiant.txt",sys);
+ecrire_dans_fichier("etudiant.txt",prog_c);
 ecrire_dans_fichier("etudiant.txt",", ");
 
 
 ecrire_dans_fichier("etudiant.txt",sys);
 ecrire_dans_fichier("etudiant.txt","\n");
 
+/*
+struct etudiant nom;
+strcpy(nom.prenom, prenom);
+strcpy(nom.nom, nom);
+strcpy(nom.addresse, address);
+nom.Prog_C = prog_c;
+nom.System_exploitation = sys;
+
+
+printf(" %s \n ", nom.prenom);
+*/
 }
 /*
-struct etudiant dupont;
-strcpy(dupont.prenom, "Henry");
-strcpy(dupont.nom, "Dupond");
-strcpy(dupont.addresse, "5 Allé des mocassins");
-dupont.Prog_C = 19;
-dupont.System_exploitation = 6;
-
 struct etudiant gruffat;
 strcpy(gruffat.prenom, "Rémi");
 strcpy(gruffat.nom, "Gruffat");
@@ -108,12 +111,10 @@ lafond.Prog_C = 5;
 lafond.System_exploitation = 9;
 
 
-//printf(" %s \n ", lafond.prenom);
 
 
 
 */
-
 
 
 return 0;
