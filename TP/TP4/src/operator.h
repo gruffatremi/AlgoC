@@ -1,3 +1,4 @@
+// on defini le constructeur de chaque fonction
 int somme(int a, int b){
 return (a+b);
 

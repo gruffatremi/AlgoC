@@ -4,7 +4,7 @@
 int main (int argc, char **argv) {
 
 int choix = argv[1][0]; // on recupere en ASCII la value
-int a = atoi (argv[2]); // on converti en int 
+int a = atoi (argv[2]); // on converti ASCII en int 
 int b = atoi (argv[3]); // pareil 
 
 // printf("%d  %d %d \n ",a , b, choix);

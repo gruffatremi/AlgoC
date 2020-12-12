@@ -7,18 +7,19 @@ int a;
 int b;
 
 
-printf("entrez le nombre a :");
-scanf("%d", &a);
+printf("entrez le nombre a : ");
+scanf("%d", &a);//on récupere la valeur de a
 
-printf("entrez le nombre b :");
-scanf("%d", &b);
+printf("entrez le nombre b : ");
+scanf("%d", &b);//on récupere la valeur de b
 
 
 char choix;
-    printf("entrez l'opérateur");
-    scanf(" %c", &choix); /*Space is given before %c*/
+    printf("entrez l'opérateur ");
+    scanf(" %c", &choix); // on récupere la valeur du choix en ascii
 
 switch (choix) {
+// les cases sont en ascii
 case 43 : printf("%d  \n ",somme(a,b)); break;
 case 45 : printf("%d  \n",difference(a,b) ); break;
 case 42 : printf("%d  \n",produit(a,b)); break;

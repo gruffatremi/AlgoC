@@ -15,7 +15,7 @@ void chercher_fichier(char *nom_de_fichier,char *message)
         while((fgets(motEc,sizeof(motEc)-1,mon_fichier)) != NULL)
         {
 			int count = 0;
-			if (motEc[strlen(motEc)-1] == '\n')
+			if (motEc[strlen(motEc)-1] == '\n') // on compte le nombre de ligne
 			{
 				ligne =  ligne +1;
 
@@ -23,30 +23,18 @@ void chercher_fichier(char *nom_de_fichier,char *message)
 
 
 			char d[] = " ";
-			char *p = strtok(motEc,d);
+			char *p = strtok(motEc,d); // on découpe la ligne en plusieur mot avec comme caractere de séparation "espace"
 			while(p != NULL)
 			{
-				//p[strlen(p)-1]='\0';
-				if (strstr(p,message) != 0)
+				if (strstr(p,message) != 0)//si c'est vrai alors le mot est identtique, on incrémente
 				{
 				count = count + 1;
-				//printf(" COUNT = %d ",count);
-				//printf(" P = %s ",p);  
-				//printf("'%s'\n", p);
 				}
 			p = strtok(NULL, d);
 			}
-			//printf("mot trouvé %d fois Ligne %d \n",count,ligne);
-
-
 			motEc[strlen(motEc)-1]='\0';
 
-           //printf("MotEc =%s  message  =%s \n",motEc,message);
-				/*   if (strstr(motEc,message) != 0)
-				{
-                count = count + 1;
-                printf("mot trouvé %d fois Ligne %d \n",count,ligne);
-                }*/
+          	if ( count != 0 )// on affiche que les lignes pour lesquelles le mot à été trouvé 
         	printf("Ligne %d, %d fois \n",ligne,count);
 	}
 
