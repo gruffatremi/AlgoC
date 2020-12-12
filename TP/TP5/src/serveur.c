@@ -13,8 +13,8 @@
 #include <stdlib.h>
 #include <string.h>
 #include <unistd.h>
-
 #include "serveur.h"
+#include "operatore.h"
 
 /* renvoyer un message (*data) au client (client_socket_fd)
  */
@@ -59,18 +59,73 @@ int recois_envoie_message(int socketfd) {
    * extraire le code des données envoyées par le client. 
    * Les données envoyées par le client peuvent commencer par le mot "message :" ou un autre mot.
    */
-  printf ("Message recu: %s\n", data);
-  char code[10];
-  sscanf(data, "%s:", code);
+  ///printf ("Message recu: %s\n", data);
+  //char code[10];
+  //sscanf(data, "%s:", code);
+  char message[100];
+  printf("Votre message (max 1000 caracteres): ");
+  fgets(message, 1024, stdin);
 
   //Si le message commence par le mot: 'message:' 
-  if (strcmp(code, "message:") == 0) {
-    renvoie_message(client_socket_fd, data);
-  }
+  //if (strcmp(code, "message:") == 0) {
+  renvoie_message(client_socket_fd, message);
+  //}
 
   //fermer le socket 
-  close(socketfd);
+close(socketfd);
 }
+
+int recois_numeros_calcule(int socketfd){
+    struct sockaddr_in client_addr;
+    char data[1024];
+
+    int client_addr_len = sizeof(client_addr);
+
+    // nouvelle connection de client    printf("%s \n", demande);
+
+    int client_socket_fd = accept(socketfd, (struct sockaddr *) &client_addr, &client_addr_len);
+    if (client_socket_fd < 0 ) {
+        perror("accept");
+        return(EXIT_FAILURE);
+    }
+
+    // la réinitialisation de l'ensemble des données
+    memset(data, 0, sizeof(data));
+
+    //lecture de données envoyées par un client
+    int data_size = read (client_socket_fd, (void *) data, sizeof(data));
+
+    if (data_size < 0) {
+        perror("erreur lecture");
+        return(EXIT_FAILURE);
+    }
+
+    /*
+     * extraire le code des données envoyées par le client.
+     * Les données envoyées par le client peuvent commencer par le mot "message :" ou un autre mot.
+     */
+    printf ("Calcul recu: %s\n", data);
+    char str[20];
+    int result = calcul(data);
+    sprintf(str, "%d", result);
+    sscanf(data, "%d:", result);
+
+    strcpy(data, "Resultat: ");
+    strcat(data, str);
+    
+
+    renvoie_message(client_socket_fd, data);
+
+
+    /*//Si le message commence par le mot: 'message:'
+    if (strcmp(code, "message:") == 0) {strcpy(temp,"");
+        renvoie_message(client_socket_fd, data);
+    }*/
+
+    //fermer le socket
+    close(socketfd);
+}
+
 
 int main() {
 

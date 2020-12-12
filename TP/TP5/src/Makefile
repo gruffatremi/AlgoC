@@ -3,21 +3,21 @@ CC ?= gcc
 CFLAGS=-Wall -Wextra -g
 
 COBJS ?= client.o
-SOBJS ?= serveur.o 
+SOBJS ?= serveur.o
 
 .SUFFIXES: .c .o
 
 SERVER = serveur
 CLIENT = client
+CALCUL = cal.c
 
 all: $(SERVER) $(CLIENT)
 
 $(SERVER): $(SOBJS)
-	$(CC) -o $(SERVER) $(SOBJS)
+	$(CC) -o $(SERVER) $(SOBJS) $(CALCUL)
 
 $(CLIENT): $(COBJS)
 	$(CC) -o $(CLIENT) $(COBJS)
 
-.c.o: 
+.c.o:
 	$(CC) -c $*.c
-

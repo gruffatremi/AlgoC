@@ -35,3 +35,5 @@ int negation(int a) {
 return (- a);
 
 }
+
+int calcul(char *);
