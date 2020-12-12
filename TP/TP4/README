@@ -1,10 +1,15 @@
 # Bibliothèques
-* 
-*
+* stdio.h
+* stdlib.h
 
 # Références
-*
-*
+* https://waytolearnx.com/2019/09/decouper-une-chaine-de-caractere-en-c.html
+* https://stackoverflow.com/questions/64555731/c-int-function-returning-ascii-value
+* https://doc.ubuntu-fr.org/tutoriel/script_shell
+* https://openclassrooms.com/forum/sujet/chercher-un-mot-dans-fichier
+* http://public.iutenligne.net/informatique/algorithme-et-programmation/priou/LangageC/1743_lecture_dun_fichier_texte_par_fgets_combin__sscanf_conseill.html
+* https://openclassrooms.com/forum/sujet/decouper-ma-phrase-par-mots
+* 
 
 # Difficulté
 *
